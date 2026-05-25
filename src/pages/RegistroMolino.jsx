@@ -146,8 +146,6 @@ export default function RegistroMolino() {
     setAlert(null);
   };
 
-  const jsonPayload = JSON.stringify(buildPayload(form), null, 2);
-
   return (
     <div className="page-fade" style={{ padding: 24 }}>
 
