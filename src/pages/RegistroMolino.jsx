@@ -107,7 +107,6 @@ export default function RegistroMolino() {
   const [form, setForm]           = useState(INITIAL_FORM);
   const [alert, setAlert]         = useState(null);   // { type: 'success'|'error', msg }
   const [sending, setSending]     = useState(false);
-  const [showJson, setShowJson]   = useState(false);
 
   // Generic field updater
   const set = (field, value) => setForm(f => ({ ...f, [field]: value }));
@@ -134,7 +133,6 @@ export default function RegistroMolino() {
       await createRecord(form);
       setAlert({ type: 'success', msg: 'Registro enviado exitosamente al servidor.' });
       setForm(INITIAL_FORM);
-      setShowJson(false);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (err) {
       setAlert({ type: 'error', msg: `Error al enviar: ${err.message}` });
@@ -146,7 +144,6 @@ export default function RegistroMolino() {
   const handleReset = () => {
     setForm(INITIAL_FORM);
     setAlert(null);
-    setShowJson(false);
   };
 
   const jsonPayload = JSON.stringify(buildPayload(form), null, 2);
@@ -362,11 +359,7 @@ export default function RegistroMolino() {
             <button className="btn-fap btn-fap-outline" onClick={handleReset}>
               <i className="bi bi-arrow-counterclockwise" /> Limpiar
             </button>
-            {/* ── BUTTONS ── 
-            <button className="btn-fap btn-fap-outline" onClick={() => setShowJson(v => !v)}>
-              <i className="bi bi-code-slash" /> {showJson ? 'Ocultar' : 'Ver'} JSON
-            </button>
-            */}
+            
             <button className="btn-fap btn-fap-green" onClick={handleSubmit} disabled={sending}>
               {sending
                 ? <><i className="bi bi-hourglass-split" /> Procesando...</>
@@ -375,16 +368,6 @@ export default function RegistroMolino() {
             </button>
           </div>
 
-          {/* ── JSON PREVIEW ── 
-          {showJson && (
-            <div style={{ marginTop: 16 }}>
-              <p style={{ fontSize: 11, color: 'var(--fap-text-muted)', marginBottom: 6 }}>
-                Vista previa del JSON que se enviará por POST:
-              </p>
-              <pre className="json-block">{jsonPayload}</pre>
-            </div>
-          )}
-            */}
         </div>
       </div>
     </div>
