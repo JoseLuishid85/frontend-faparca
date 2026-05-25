@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createRecord, buildPayload, INITIAL_FORM } from '../services/molinoService';
+import { createRecord,  INITIAL_FORM } from '../services/molinoService';
 
 // ─── Sub-component: Silo Table ──────────────────────────────
 function SiloTable({ silos, onChange, accentColor }) {
