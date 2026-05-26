@@ -49,10 +49,10 @@ const fmtNum     = n    => (n != null && n !== '' && !isNaN(n)) ? Number(n).toLo
 // ─── Detail Modal ─────────────────────────────────────────────
 function DetailModal({ record: r, onClose }) {
   if (!r) return null;
-  const softTotal  = sumTons(r.soft_silos);
-  const durumTotal = sumTons(r.durum_silos);
-  const flourTotal = (r.flour_bran_silos || []).filter(s => s.type === 'flour').reduce((a, s) => a + (parseFloat(s.tons) || 0), 0);
-  const branTotal  = (r.flour_bran_silos || []).filter(s => s.type === 'bran').reduce((a, s)  => a + (parseFloat(s.tons) || 0), 0);
+  const softTotal  = sumTons(r.soft_silos).toFixed(2);
+  const durumTotal = sumTons(r.durum_silos).toFixed(2);
+  const flourTotal = (r.flour_bran_silos || []).filter(s => s.type === 'flour').reduce((a, s) => a + (parseFloat(s.tons) || 0), 0).toFixed(2);
+  const branTotal  = (r.flour_bran_silos || []).filter(s => s.type === 'bran').reduce((a, s)  => a + (parseFloat(s.tons) || 0), 0).toFixed(2);
 
   return (
     <div className="fap-modal-overlay" onClick={onClose}>
@@ -320,10 +320,10 @@ export default function ConsultaRegistros() {
                 </tr>
               )}
               {filtered.map(r => {
-                const soft  = sumTons(r.soft_silos);
-                const durum = sumTons(r.durum_silos);
-                const flour = (r.flour_bran_silos||[]).filter(s=>s.type==='flour').reduce((a,s)=>a+(parseFloat(s.tons)||0),0);
-                const bran  = (r.flour_bran_silos||[]).filter(s=>s.type==='bran').reduce((a,s) =>a+(parseFloat(s.tons)||0),0);
+                const soft  = (sumTons(r.soft_silos) || 0).toFixed(2);
+                const durum = (sumTons(r.durum_silos)|| 0).toFixed(2);
+                const flour = ((r.flour_bran_silos||[]).filter(s=>s.type==='flour').reduce((a,s)=>a+(parseFloat(s.tons)||0),0)).toFixed(2);
+                const bran  = ((r.flour_bran_silos||[]).filter(s=>s.type==='bran').reduce((a,s) =>a+(parseFloat(s.tons)||0),0)).toFixed(2);
                 const incident = hasIncident(r.observations);
                 return (
                   <tr key={r.id}>

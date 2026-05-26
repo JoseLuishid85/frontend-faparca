@@ -126,9 +126,13 @@ export default function Dashboard() {
                 </thead>
                 <tbody>
                   {records.slice(0, 8).map(r => {
-                    const s  = sumTons(r.soft_silos);
-                    const d  = sumTons(r.durum_silos);
-                    const fl = (r.flour_bran_silos || []).filter(x => x.type === 'flour').reduce((a, x) => a + (parseFloat(x.tons) || 0), 0);
+                    
+                    const s  = (sumTons(r.soft_silos) || 0).toFixed(2);
+                    const d  = (sumTons(r.durum_silos) || 0).toFixed(2);
+                    const fl = (r.flour_bran_silos || [])
+                      .filter(x => x.type === 'flour')
+                      .reduce((a, x) => a + (parseFloat(x.tons) || 0), 0)
+                      .toFixed(2);
                     const incident = hasIncident(r.observations);
                     return (
                       <tr key={r.id}>
