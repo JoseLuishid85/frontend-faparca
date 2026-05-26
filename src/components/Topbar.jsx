@@ -49,10 +49,11 @@ export default function Topbar({ onMenuClick }) {
 
       {/* Right */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+         {/* Right 
         <span className="badge-fap badge-online">
           <i className="bi bi-circle-fill" style={{ fontSize: 7 }} />
           En línea
-        </span>
+        </span>*/}
 
         {/* Theme toggle */}
         <button
