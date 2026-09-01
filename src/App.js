@@ -12,6 +12,7 @@ import Topbar   from './components/Topbar';
 import Dashboard         from './pages/Dashboard';
 import RegistroMolino    from './pages/RegistroMolino';
 import ConsultaRegistros from './pages/ConsultaRegistros';
+import Productos         from './pages/Productos';
 import Configuracion     from './pages/Configuracion';
 
 export default function App() {
@@ -60,6 +61,7 @@ export default function App() {
               <Route path="/"              element={<Dashboard />} />
               <Route path="/registro"      element={<RegistroMolino />} />
               <Route path="/consulta"      element={<ConsultaRegistros />} />
+              <Route path="/productos"     element={<Productos />} />
               <Route path="/configuracion" element={<Configuracion />} />
               <Route path="*"              element={<NotFound />} />
             </Routes>

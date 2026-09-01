@@ -4,7 +4,7 @@
  * All payload field names are in English as required.
  */
 
-const BASE_URL = process.env.REACT_APP_API_URL || 'https://joseluishidalgo.com/faparca/api';
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 const headers = {
   'Content-Type': 'application/json',

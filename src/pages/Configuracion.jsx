@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const DEFAULT_CONFIG = {
-  api_url:      process.env.REACT_APP_API_URL || 'https://joseluishidalgo.com/faparca/api',
+  api_url:      process.env.REACT_APP_API_URL,
   plant_name:   'Molino Principal — FAPARCA',
   company_name: 'FAPARCA',
   timezone:     'America/Caracas',

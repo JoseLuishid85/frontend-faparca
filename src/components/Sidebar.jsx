@@ -14,6 +14,12 @@ const NAV_ITEMS = [
       { to: '/registro', label: 'Nuevo Registro', icon: 'bi-pencil-square' },
       { to: '/consulta', label: 'Consultar Registros', icon: 'bi-search' },
     ],
+  },
+  {
+    section: 'Inventario',
+    items: [
+      { to: '/productos', label: 'Productos', icon: 'bi-box-seam' },
+    ],
   }
   /*
   {
@@ -63,15 +69,15 @@ export default function Sidebar({ isOpen, onClose }) {
           borderBottom: '1px solid var(--fap-border)',
           display: 'flex', alignItems: 'center', gap: 10,
         }}>
-          <div style={{
-            width: 38, height: 38,
-            background: 'var(--fap-yellow)',
-            borderRadius: 8,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontWeight: 900, fontSize: 20, color: '#0d0d0d',
-            fontStyle: 'italic',
-            fontFamily: 'var(--fap-font-display)',
-          }}>F</div>
+          <img
+            src={`${process.env.PUBLIC_URL}/logo.png`}
+            alt="FAPARCA"
+            style={{
+              width: 38, height: 38,
+              borderRadius: 8,
+              objectFit: 'cover',
+            }}
+          />
           <div style={{ lineHeight: 1.1 }}>
             <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: 2, color: 'var(--fap-text)', fontFamily: 'var(--fap-font-display)' }}>
               FAPARCA
