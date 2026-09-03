@@ -5,7 +5,6 @@ import {
   productImageUrl, badgeClassByCode, DEMO_CATEGORIES, DEMO_UNITS, INITIAL_PRODUCT_FORM,
 } from '../services/productService';
 
-// ─── Demo data (used if the API is unreachable) ─────────────
 const DEMO_PRODUCTS = [
   { id: 1, name: 'Harina Blanca 1kg', code: 'HAR-001', category: DEMO_CATEGORIES[2], unit: DEMO_UNITS[2], stock: 120, min_stock: 30, price: 4.5, image: null },
   { id: 2, name: 'Afrecho a Granel',  code: 'AFR-001', category: DEMO_CATEGORIES[3], unit: DEMO_UNITS[0], stock: 8,   min_stock: 10, price: 180, image: null },
@@ -15,7 +14,6 @@ const DEMO_PRODUCTS = [
 
 const fmtNum = n => (n != null && n !== '' && !isNaN(n)) ? Number(n).toLocaleString('es-VE') : '—';
 
-// ─── Product Form Modal ──────────────────────────────────────
 function ProductModal({ product, categories, units, onClose, onSaved }) {
   const isEdit = !!product;
   const [form, setForm] = useState(() => product
@@ -185,7 +183,6 @@ function ProductModal({ product, categories, units, onClose, onSaved }) {
   );
 }
 
-// ─── Delete Confirm Modal ────────────────────────────────────
 function ConfirmDeleteModal({ product, onClose, onConfirmed }) {
   const [deleting, setDeleting] = useState(false);
   const [error, setError] = useState(null);

@@ -5,8 +5,9 @@
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 
-// Origin (without the /faparca/api suffix) used to resolve relative image paths
-const API_ORIGIN = BASE_URL.replace(/\/faparca\/api\/?$/, '');
+// Origin (keeping the /faparca prefix, dropping only the trailing /api) used to
+// resolve relative image paths — uploads are served at <origin>/faparca/uploads
+const API_ORIGIN = BASE_URL.replace(/\/api\/?$/, '');
 
 const jsonHeaders = {
   'Content-Type': 'application/json',
